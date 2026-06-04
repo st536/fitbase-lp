@@ -4,9 +4,57 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FitBase｜20〜30代女性1,200名が証明した3ヶ月プログラム</title>
+  <meta name="description" content="運動初心者・女性のためのパーソナルジムFitBase。専任トレーナーのマンツーマン指導で、累計1,200名が3ヶ月で変化を実感。無料体験は費用・勧誘なし。今月残り3枠。">
+  <link rel="canonical" href="https://st536.github.io/fitbase-lp/">
+  <!-- OGP / Twitter（SNS流入時の視覚的連続性 +67%） -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="はじめての私が、変わる場所。｜FitBase">
+  <meta property="og:description" content="運動初心者・女性のためのパーソナルジム。累計1,200名が3ヶ月で変化を実感。無料体験は費用・勧誘なし。">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&q=80">
+  <meta property="og:url" content="https://st536.github.io/fitbase-lp/">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&q=80" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- ════════════ 計測（ここを差し替えるだけで稼働） ════════════
+       1) GA4: 下の G-XXXXXXXXXX を実IDに置換
+       2) Clarity（無料ヒートマップ）: 下の CLARITY_ID を実IDに置換
+       両方ともIDを入れるまでは何も送信されません（安全に無効化）。 -->
+  <script>
+    window.FITBASE_GA4_ID = 'G-XXXXXXXXXX';      // ← GA4測定ID
+    window.FITBASE_CLARITY_ID = 'CLARITY_ID';    // ← Microsoft Clarity プロジェクトID
+  </script>
+  <script>
+    // GA4
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    (function(){
+      var id = window.FITBASE_GA4_ID;
+      if (!id || id.indexOf('XXXX') > -1) return; // 未設定なら起動しない
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+      document.head.appendChild(s);
+      gtag('js', new Date()); gtag('config', id);
+    })();
+    // Microsoft Clarity
+    (function(c,l,a,r,i,t,y){
+      if (!window.FITBASE_CLARITY_ID || window.FITBASE_CLARITY_ID === 'CLARITY_ID') return;
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window,document,'clarity','script',window.FITBASE_CLARITY_ID);
+    // 統一イベントヘルパー：CVファネルを1関数で計測
+    window.track = function(event, params){
+      params = params || {};
+      try { if (typeof gtag === 'function' && (window.FITBASE_GA4_ID||'').indexOf('XXXX') === -1) gtag('event', event, params); } catch(e){}
+      try { if (typeof clarity === 'function') clarity('event', event); } catch(e){}
+      if (window.location.hostname === 'localhost') console.log('[track]', event, params);
+    };
+  </script>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -545,7 +593,7 @@
     <p class="hero-micro">費用・勧誘なし ／ <strong>6月末まで入会金無料</strong></p>
   </div>
   <div class="hero-right">
-    <img id="heroImg" class="hero-img" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&q=80" alt="パーソナルトレーニング">
+    <img id="heroImg" class="hero-img" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&q=80" alt="女性トレーナーがマンツーマンでトレーニングを指導している様子" width="900" height="1200" fetchpriority="high" decoding="async">
     <div class="hero-overlay"></div>
     <div class="hero-card" id="heroCard">
       <blockquote>「3ヶ月で7kg痩せました。人生で初めて、自分の体が好きになれた気がします。」</blockquote>
@@ -603,7 +651,7 @@
     </div>
     <div class="testi-grid">
       <div class="testi-card reveal" style="transition-delay:.05s">
-        <img class="testi-img" src="https://images.unsplash.com/photo-1594381898411-846e7d193883?w=600&q=80" alt="K.Mさん">
+        <img class="testi-img" src="https://images.unsplash.com/photo-1594381898411-846e7d193883?w=600&q=80" alt="K.Mさん" width="600" height="450" loading="lazy" decoding="async">
         <div class="testi-body">
           <div class="testi-nums">
             <div><div class="t-stat-n">-7.2<small style="font-size:.95rem">kg</small></div><div class="t-stat-l">体重</div></div>
@@ -612,13 +660,13 @@
           </div>
           <p class="testi-q">「鏡の前に立つのが怖かった私が、今は毎朝鏡を見るのが楽しみになりました。」</p>
           <div class="testi-prof">
-            <img class="testi-av" src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=80&q=80" alt="">
+            <img class="testi-av" src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=80&q=80" alt="" width="80" height="80" loading="lazy" decoding="async">
             <div><div class="testi-name">K.Mさん</div><div class="testi-meta">28歳 · 会社員 · Standardプラン</div></div>
           </div>
         </div>
       </div>
       <div class="testi-card reveal" style="transition-delay:.1s">
-        <img class="testi-img" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80" alt="T.Aさん">
+        <img class="testi-img" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80" alt="T.Aさん" width="600" height="450" loading="lazy" decoding="async">
         <div class="testi-body">
           <div class="testi-nums">
             <div><div class="t-stat-n">-5.8<small style="font-size:.95rem">kg</small></div><div class="t-stat-l">体重</div></div>
@@ -627,13 +675,13 @@
           </div>
           <p class="testi-q">「産後2年ずっと悩んでいた体型が、3ヶ月でほぼ戻りました。もっと早く来ればよかった。」</p>
           <div class="testi-prof">
-            <img class="testi-av" src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=80&q=80" alt="">
+            <img class="testi-av" src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=80&q=80" alt="" width="80" height="80" loading="lazy" decoding="async">
             <div><div class="testi-name">T.Aさん</div><div class="testi-meta">34歳 · 主婦 · Standardプラン</div></div>
           </div>
         </div>
       </div>
       <div class="testi-card reveal" style="transition-delay:.15s">
-        <img class="testi-img" src="https://images.unsplash.com/photo-1549576490-b0b4831ef60a?w=600&q=80" alt="N.Sさん">
+        <img class="testi-img" src="https://images.unsplash.com/photo-1549576490-b0b4831ef60a?w=600&q=80" alt="N.Sさん" width="600" height="450" loading="lazy" decoding="async">
         <div class="testi-body">
           <div class="testi-nums">
             <div><div class="t-stat-n">-9.1<small style="font-size:.95rem">kg</small></div><div class="t-stat-l">体重</div></div>
@@ -642,7 +690,7 @@
           </div>
           <p class="testi-q">「夜勤ありの不規則な仕事でも、トレーナーが柔軟に対応してくれて助かりました。」</p>
           <div class="testi-prof">
-            <img class="testi-av" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&q=80" alt="">
+            <img class="testi-av" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&q=80" alt="" width="80" height="80" loading="lazy" decoding="async">
             <div><div class="testi-name">N.Sさん</div><div class="testi-meta">25歳 · 看護師 · Premiumプラン</div></div>
           </div>
         </div>
@@ -661,7 +709,7 @@
     </div>
     <div class="trainer-grid">
       <div class="trainer-card reveal" style="transition-delay:.05s">
-        <img class="trainer-photo" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=300&q=80" alt="田中 麻衣 トレーナー">
+        <img class="trainer-photo" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=300&q=80" alt="田中 麻衣 トレーナー" width="300" height="364" loading="lazy" decoding="async">
         <div>
           <div class="trainer-name">田中 麻衣</div>
           <div class="trainer-role">Senior Personal Trainer</div>
@@ -679,7 +727,7 @@
         </div>
       </div>
       <div class="trainer-card reveal" style="transition-delay:.1s">
-        <img class="trainer-photo" src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=300&q=80" alt="山本 健太 トレーナー">
+        <img class="trainer-photo" src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=300&q=80" alt="山本 健太 トレーナー" width="300" height="364" loading="lazy" decoding="async">
         <div>
           <div class="trainer-name">山本 健太</div>
           <div class="trainer-role">Head Trainer</div>
@@ -715,7 +763,7 @@
         <h3 class="feat-title">担当トレーナーは<br>ずっと変わらない</h3>
         <p class="feat-body">大手ジムのように毎回担当者が変わることはありません。初日からの変化を一番近くで見ている専任トレーナーが、あなたの「なぜ変われないか」を特定し、最短ルートで結果に連れていきます。</p>
       </div>
-      <div class="feat-media"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=700&q=80" alt="専任トレーナー"></div>
+      <div class="feat-media"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=700&q=80" alt="専任トレーナー" width="700" height="500" loading="lazy" decoding="async"></div>
     </div>
     <div class="feat-row rev reveal">
       <div class="feat-content">
@@ -723,7 +771,7 @@
         <h3 class="feat-title">初心者・女性が<br>安心して通える場所</h3>
         <p class="feat-body">来訪者の7割は運動未経験・初心者。女性専用時間帯も設け、「ガチ勢だらけで怖い」という声がゼロの空間をつくりました。「想像と全然違った」が、体験後の一番多い感想です。</p>
       </div>
-      <div class="feat-media"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=700&q=80" alt="清潔な空間"></div>
+      <div class="feat-media"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=700&q=80" alt="清潔な空間" width="700" height="500" loading="lazy" decoding="async"></div>
     </div>
     <div class="feat-row reveal">
       <div class="feat-content">
@@ -731,7 +779,7 @@
         <h3 class="feat-title">食べながら、<br>体が変わっていく</h3>
         <p class="feat-body">「食べないダイエット」はリバウンドへの近道。FitBaseでは「好きなものを食べながら痩せる」食事設計を週次でレビュー。卒業後もリバウンドしない体の使い方を3ヶ月で身につけます。</p>
       </div>
-      <div class="feat-media"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=700&q=80" alt="食事管理"></div>
+      <div class="feat-media"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=700&q=80" alt="食事管理" width="700" height="500" loading="lazy" decoding="async"></div>
     </div>
   </div>
 </section>
@@ -940,26 +988,24 @@
       <div class="form-card">
         <!-- STEP 1 -->
         <div class="form-step" id="step1">
-          <p class="step-label">STEP <strong>1 / 2</strong> — まずはお名前とご連絡先だけ</p>
-          <div class="form-row2">
-            <div class="form-group">
-              <label>お名前<span>*</span></label>
-              <input type="text" id="s1-name" placeholder="山田 花子" required>
-            </div>
-            <div class="form-group">
-              <label>電話番号<span>*</span></label>
-              <input type="tel" id="s1-phone" placeholder="090-0000-0000" required>
-            </div>
+          <p class="step-label">STEP <strong>1 / 2</strong> — まずはお名前とメールだけ（30秒）</p>
+          <div class="form-group">
+            <label>お名前<span>*</span></label>
+            <input type="text" id="s1-name" placeholder="山田 花子" autocomplete="name" required>
           </div>
           <div class="form-group">
             <label>メールアドレス<span>*</span></label>
-            <input type="email" id="s1-email" placeholder="example@email.com" required>
+            <input type="email" id="s1-email" placeholder="example@email.com" autocomplete="email" inputmode="email" required>
           </div>
-          <button class="form-btn" id="nextBtn">次へ（所要30秒）→</button>
+          <button class="form-btn" id="nextBtn">無料体験に進む →</button>
         </div>
         <!-- STEP 2 -->
         <div class="form-step hidden" id="step2">
           <p class="step-label">STEP <strong>2 / 2</strong> — あと少しで完了</p>
+          <div class="form-group">
+            <label>電話番号<span>*</span></label>
+            <input type="tel" id="s1-phone" placeholder="090-0000-0000" autocomplete="tel" inputmode="tel" required>
+          </div>
           <div class="form-group">
             <label>ご希望の体験日時</label>
             <select id="s2-datetime">
@@ -1060,24 +1106,43 @@ document.querySelectorAll('.faq-q').forEach(q => {
 // 2-step form
 document.getElementById('nextBtn').addEventListener('click', () => {
   const name  = document.getElementById('s1-name').value.trim();
-  const phone = document.getElementById('s1-phone').value.trim();
   const email = document.getElementById('s1-email').value.trim();
-  if (!name || !email) { alert('お名前とメールアドレスをご入力ください。'); return; }
+  if (!name || !/.+@.+\..+/.test(email)) { alert('お名前と正しいメールアドレスをご入力ください。'); return; }
   document.getElementById('step1').classList.add('hidden');
   document.getElementById('step2').classList.remove('hidden');
+  track('form_step1_complete');   // ファネル：step1通過率を計測
 });
 document.getElementById('backBtn').addEventListener('click', () => {
   document.getElementById('step2').classList.add('hidden');
   document.getElementById('step1').classList.remove('hidden');
 });
 document.getElementById('submitBtn').addEventListener('click', () => {
+  const phone = document.getElementById('s1-phone').value.trim();
+  if (!phone) { alert('電話番号をご入力ください。'); return; }
   const btn = document.getElementById('submitBtn');
   btn.textContent = '送信中...'; btn.disabled = true;
+  track('generate_lead', { plan: window.__selectedPlan || 'unknown' });  // GA4標準CVイベント
   setTimeout(() => {
     document.getElementById('step2').style.display = 'none';
     document.getElementById('formSuccess').style.display = 'flex';
+    document.getElementById('formSuccess').scrollIntoView({ behavior:'smooth', block:'center' });
   }, 1000);
 });
+
+// ── CVファネル計測：全CTA・プラン選択をトラッキング ──
+document.querySelectorAll('a[href="#contact"], .sticky-cta-btn, .nav-cta').forEach(el => {
+  el.addEventListener('click', () => track('cta_click', { location: el.closest('section,nav,div[class]')?.id || el.className.split(' ')[0] }));
+});
+document.querySelectorAll('.pc').forEach(card => {
+  const plan = card.querySelector('.pc-name')?.textContent.trim();
+  card.querySelector('.pc-btn')?.addEventListener('click', () => { window.__selectedPlan = plan; track('plan_select', { plan }); });
+});
+// スクロール深度（離脱地点の把握用：25/50/75/100%）
+let _depth = 0;
+window.addEventListener('scroll', () => {
+  const p = Math.round((window.scrollY + innerHeight) / document.body.scrollHeight * 100);
+  [25,50,75,100].forEach(m => { if (p >= m && _depth < m) { _depth = m; track('scroll_depth', { percent: m }); } });
+}, { passive:true });
 </script>
 </body>
 </html>
