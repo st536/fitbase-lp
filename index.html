@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitBase｜20〜30代女性1,200名が証明した3ヶ月プログラム</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700;1,9..144,900&family=Space+Grotesk:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --o: #FF6B35;
+      --od: #d9511d;
+      --text: #181716;
+      --muted: #6b6560;
+      --white: #fff;
+      --bg: #f9f8f6;
+      --r: 4px;
+      --rm: 8px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Space Grotesk','Noto Sans JP',sans-serif;
+      background: var(--bg); color: var(--text); overflow-x: hidden;
+      padding-bottom: 72px; /* space for sticky CTA */
+    }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+    .reveal { opacity:0; transform:translateY(24px); transition:opacity .6s ease,transform .6s ease; }
+    .reveal.visible { opacity:1; transform:none; }
+
+    /* ── STICKY CTA BAR ── */
+    .sticky-cta {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 300;
+      background: var(--text);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 24px; gap: 16px;
+      box-shadow: 0 -4px 24px rgba(0,0,0,.2);
+      transform: translateY(100%);
+      transition: transform .4s ease;
+    }
+    .sticky-cta.visible { transform: translateY(0); }
+    .sticky-cta-text { font-size: .78rem; color: rgba(255,255,255,.6); line-height: 1.4; }
+    .sticky-cta-text strong { color: var(--o); display: block; font-size: .88rem; }
+    .sticky-cta-btn {
+      flex-shrink: 0;
+      background: var(--o); color: #fff;
+      font-family: 'Space Grotesk',sans-serif; font-weight: 700; font-size: .82rem;
+      letter-spacing: .04em; text-transform: uppercase;
+      padding: 12px 24px; border-radius: var(--r); border: none;
+      cursor: pointer; text-decoration: none;
+      box-shadow: 0 2px 0 var(--od);
+      white-space: nowrap;
+      transition: background .2s;
+    }
+    .sticky-cta-btn:hover { background: var(--od); }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      padding: 14px 28px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(249,248,246,.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0,0,0,.06);
+    }
+    .nav-logo {
+      font-family: 'Fraunces',serif; font-size: 1.4rem; font-weight: 700;
+      letter-spacing: -.02em; color: var(--text); text-decoration: none;
+    }
+    .nav-logo span { color: var(--o); font-style: italic; }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-scarcity { font-size: .72rem; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+    .nav-dot { width: 7px; height: 7px; background: var(--o); border-radius: 50%; animation: blink 1.8s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+    .nav-cta {
+      background: var(--o); color: #fff;
+      font-family: 'Space Grotesk',sans-serif; font-weight: 700; font-size: .78rem;
+      letter-spacing: .04em; text-transform: uppercase;
+      padding: 9px 20px; border-radius: var(--r); border: none;
+      cursor: pointer; text-decoration: none;
+      box-shadow: 0 2px 0 var(--od);
+      transition: background .2s;
+    }
+    .nav-cta:hover { background: var(--od); }
+
+    /* ── COUNTDOWN BAR ── */
+    .countdown-bar {
+      background: var(--text); color: #fff;
+      padding: 10px 24px; margin-top: 53px;
+      display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;
+      font-size: .78rem;
+    }
+    .countdown-bar .label { color: rgba(255,255,255,.5); }
+    .countdown-bar .label strong { color: var(--o); }
+    .cd-units { display: flex; gap: 8px; align-items: center; }
+    .cd-unit { display: flex; flex-direction: column; align-items: center; }
+    .cd-num {
+      font-family: 'Fraunces',serif; font-size: 1.3rem; font-weight: 700;
+      background: rgba(255,107,53,.15); border: 1px solid rgba(255,107,53,.3);
+      border-radius: var(--r); padding: 2px 10px; min-width: 44px; text-align: center;
+      color: var(--o);
+    }
+    .cd-label { font-size: .58rem; color: rgba(255,255,255,.35); margin-top: 3px; letter-spacing: .06em; text-transform: uppercase; }
+    .cd-sep { font-size: 1rem; color: var(--o); font-weight: 700; margin-bottom: 14px; }
+
+    /* ── HERO ── */
+    #hero {
+      display: grid; grid-template-columns: 1fr 1fr;
+      min-height: 100svh; align-items: center; overflow: hidden; position: relative;
+    }
+    .hero-left { padding: 56px 56px 56px 28px; position: relative; z-index: 1; }
+    .hero-target {
+      display: inline-block;
+      background: rgba(255,107,53,.1); border: 1px solid rgba(255,107,53,.25);
+      color: var(--o); font-size: .72rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; padding: 5px 14px; border-radius: var(--r);
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-family: 'Fraunces',serif;
+      font-size: clamp(2.5rem,4.5vw,3.6rem);
+      font-weight: 900; line-height: 1.1; letter-spacing: -.04em; margin-bottom: 18px;
+    }
+    h1 em { font-style: italic; font-weight: 300; color: var(--o); display: block; }
+    .hero-voice {
+      font-size: 1rem; line-height: 1.9; color: var(--muted); margin-bottom: 10px;
+    }
+    .hero-voice strong { color: var(--text); }
+    .hero-promise {
+      border-left: 3px solid var(--o); padding-left: 16px;
+      font-size: .92rem; line-height: 1.8; color: var(--text); margin: 20px 0 32px;
+    }
+    /* proof numbers row */
+    .hero-nums {
+      display: flex; gap: 0; margin-bottom: 32px;
+      border: 1px solid rgba(0,0,0,.09); border-radius: var(--rm); overflow: hidden;
+    }
+    .hero-num {
+      flex: 1; padding: 16px 12px; text-align: center;
+      border-right: 1px solid rgba(0,0,0,.09); background: var(--white);
+    }
+    .hero-num:last-child { border-right: none; }
+    .hero-num-val {
+      font-family: 'Fraunces',serif; font-size: 1.7rem; font-weight: 700;
+      letter-spacing: -.05em; color: var(--o); line-height: 1;
+    }
+    .hero-num-label { font-size: .62rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-top: 4px; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--o); color: #fff;
+      font-family: 'Space Grotesk',sans-serif; font-weight: 700; font-size: .95rem;
+      letter-spacing: .02em; padding: 17px 36px; border-radius: var(--r); border: none;
+      cursor: pointer; text-decoration: none;
+      box-shadow: 0 3px 0 var(--od);
+      transition: background .2s, transform .15s, box-shadow .15s;
+    }
+    .btn-primary:hover { background: var(--od); transform: translateY(-2px); box-shadow: 0 5px 0 #b8441a; }
+    .btn-primary:active { transform: none; box-shadow: 0 1px 0 var(--od); }
+    .hero-micro { font-size: .72rem; color: var(--muted); margin-top: 12px; }
+    .hero-micro strong { color: var(--o); }
+    /* hero right image */
+    .hero-right { position: relative; height: 100svh; overflow: hidden; }
+    .hero-img {
+      width:100%; height:100%; object-fit:cover; display:block;
+      opacity:0; transform:scale(1.03);
+      transition:opacity .9s ease .2s, transform 1.2s ease .2s;
+    }
+    .hero-img.vis { opacity:1; transform:scale(1); }
+    .hero-overlay {
+      position:absolute; inset:0;
+      background: linear-gradient(to right, var(--bg) 0%, rgba(249,248,246,.15) 30%, transparent 55%);
+    }
+    .hero-card {
+      position: absolute; bottom: 44px; left: -28px;
+      background: var(--white); border-radius: var(--rm); border-left: 4px solid var(--o);
+      padding: 18px 22px; max-width: 270px;
+      box-shadow: 0 12px 36px rgba(0,0,0,.13);
+      opacity: 0; transform: translateX(-12px);
+      transition: opacity .7s ease .9s, transform .7s ease .9s;
+    }
+    .hero-card.vis { opacity:1; transform:none; }
+    .hero-card blockquote { font-family:'Fraunces',serif; font-style:italic; font-size:.9rem; line-height:1.6; margin-bottom:10px; }
+    .hero-card-attr { font-size:.68rem; color:var(--muted); }
+    .hero-card-attr strong { color:var(--o); display:block; font-size:.82rem; font-family:'Fraunces',serif; font-style:normal; }
+
+    /* ── SECTION COMMON ── */
+    .sec-kicker { font-size:.68rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--o); margin-bottom:12px; }
+    .sec-title { font-family:'Fraunces',serif; font-size:clamp(1.9rem,4vw,2.8rem); font-weight:700; line-height:1.15; letter-spacing:-.03em; }
+    .sec-title span { color:var(--o); font-style:italic; }
+    .sec-lead { font-size:.92rem; color:var(--muted); line-height:1.85; margin-top:10px; }
+
+    /* ── INLINE CTA ── */
+    .inline-cta {
+      background: linear-gradient(135deg,#fff6f2 0%,#fff 100%);
+      border: 1px solid rgba(255,107,53,.2); border-radius: var(--rm);
+      padding: 32px 40px;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+      flex-wrap: wrap;
+    }
+    .inline-cta-text h3 { font-family:'Fraunces',serif; font-size:1.2rem; font-weight:700; letter-spacing:-.02em; margin-bottom:4px; }
+    .inline-cta-text p { font-size:.82rem; color:var(--muted); }
+    .inline-cta-text p strong { color:var(--o); }
+
+    /* ── PAIN ── */
+    #pain { background:var(--text); padding:110px 0; position:relative; overflow:hidden; }
+    #pain::before {
+      content:''; position:absolute; top:-120px; right:-80px;
+      width:480px; height:480px;
+      background:radial-gradient(circle,rgba(255,107,53,.09) 0%,transparent 65%);
+      pointer-events:none;
+    }
+    .pain-center { max-width:740px; margin:0 auto; text-align:center; }
+    .pain-eyebrow { font-size:.68rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.3); margin-bottom:24px; }
+    .pain-quote { font-family:'Fraunces',serif; font-size:clamp(2rem,5vw,3.2rem); font-style:italic; font-weight:300; line-height:1.25; letter-spacing:-.03em; color:#fff; margin-bottom:28px; }
+    .pain-quote em { color:var(--o); }
+    .pain-body { font-size:1rem; line-height:2; color:rgba(255,255,255,.5); margin-bottom:52px; }
+    .pain-body strong { color:#fff; }
+    .pain-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.07); border-radius:var(--rm); overflow:hidden; text-align:left; }
+    .pain-item { background:#181716; padding:28px 24px; position:relative; overflow:hidden; transition:background .25s; }
+    .pain-item:hover { background:#1f1e1d; }
+    .pain-item-n { font-family:'Fraunces',serif; font-size:2.8rem; font-weight:700; font-style:italic; color:var(--o); opacity:.2; line-height:1; margin-bottom:10px; }
+    .pain-item h3 { font-size:.88rem; font-weight:700; color:#fff; margin-bottom:8px; }
+    .pain-item p { font-size:.78rem; color:rgba(255,255,255,.38); line-height:1.75; }
+    .pain-line { position:absolute; bottom:0; left:0; width:0; height:2px; background:var(--o); transition:width .35s; }
+    .pain-item:hover .pain-line { width:100%; }
+
+    /* ── RESULTS ── */
+    #results { padding:110px 0; background:var(--bg); }
+    .results-header { text-align:center; margin-bottom:64px; }
+    .testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:48px; }
+    .testi-card {
+      background:var(--white); border:1px solid rgba(0,0,0,.07); border-radius:var(--rm);
+      overflow:hidden; transition:transform .3s, box-shadow .3s;
+    }
+    .testi-card:hover { transform:translateY(-5px); box-shadow:0 16px 48px rgba(0,0,0,.1); }
+    .testi-img { width:100%; aspect-ratio:4/3; object-fit:cover; object-position:top; display:block; filter:grayscale(15%); transition:filter .4s; }
+    .testi-card:hover .testi-img { filter:grayscale(0); }
+    .testi-body { padding:24px 22px; }
+    .testi-nums { display:flex; gap:14px; padding-bottom:18px; margin-bottom:16px; border-bottom:1px solid rgba(0,0,0,.07); }
+    .t-stat-n { font-family:'Fraunces',serif; font-size:1.7rem; font-weight:700; letter-spacing:-.05em; color:var(--o); line-height:1; }
+    .t-stat-l { font-size:.6rem; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); margin-top:3px; }
+    .testi-q { font-size:.84rem; font-style:italic; line-height:1.8; color:var(--muted); margin-bottom:14px; }
+    .testi-prof { display:flex; align-items:center; gap:10px; }
+    .testi-av { width:34px; height:34px; border-radius:50%; object-fit:cover; object-position:top; }
+    .testi-name { font-size:.8rem; font-weight:700; }
+    .testi-meta { font-size:.68rem; color:var(--muted); }
+
+    /* ── TRAINER ── */
+    #trainer { padding:110px 0; background:var(--white); }
+    .trainer-header { text-align:center; margin-bottom:64px; }
+    .trainer-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+    .trainer-card {
+      display:grid; grid-template-columns:140px 1fr;
+      gap:28px; align-items:start;
+      border:1px solid rgba(0,0,0,.08); border-radius:var(--rm); padding:32px;
+      transition:box-shadow .25s;
+    }
+    .trainer-card:hover { box-shadow:0 12px 36px rgba(0,0,0,.08); }
+    .trainer-photo { width:140px; height:170px; object-fit:cover; object-position:top; border-radius:var(--r); display:block; }
+    .trainer-name { font-family:'Fraunces',serif; font-size:1.4rem; font-weight:700; letter-spacing:-.02em; margin-bottom:2px; }
+    .trainer-role { font-size:.7rem; color:var(--o); font-weight:700; letter-spacing:.06em; text-transform:uppercase; margin-bottom:14px; }
+    .trainer-certs { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px; }
+    .cert-tag { font-size:.65rem; background:rgba(255,107,53,.08); color:var(--o); border:1px solid rgba(255,107,53,.2); border-radius:var(--r); padding:3px 10px; font-weight:600; }
+    .trainer-stats { display:flex; gap:16px; padding:14px 0; border-top:1px solid rgba(0,0,0,.07); border-bottom:1px solid rgba(0,0,0,.07); margin-bottom:14px; }
+    .tr-stat { display:flex; flex-direction:column; }
+    .tr-stat-n { font-family:'Fraunces',serif; font-size:1.3rem; font-weight:700; color:var(--text); letter-spacing:-.03em; }
+    .tr-stat-n span { color:var(--o); }
+    .tr-stat-l { font-size:.6rem; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; }
+    .trainer-bio { font-size:.82rem; line-height:1.85; color:var(--muted); }
+
+    /* ── FEATURES ── */
+    #features { padding:110px 0; background:var(--bg); }
+    .feat-header { text-align:center; margin-bottom:0; }
+    .feat-list { display:flex; flex-direction:column; }
+    .feat-row {
+      display:grid; grid-template-columns:1fr 1fr;
+      border-top:1px solid rgba(0,0,0,.08); min-height:380px;
+    }
+    .feat-row:last-child { border-bottom:1px solid rgba(0,0,0,.08); }
+    .feat-content { padding:56px 52px; display:flex; flex-direction:column; justify-content:center; }
+    .feat-row.rev .feat-content { order:2; }
+    .feat-row.rev .feat-media { order:1; }
+    .feat-idx { font-size:.65rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--o); margin-bottom:18px; display:flex; align-items:center; gap:10px; }
+    .feat-idx::before { content:''; width:20px; height:1px; background:var(--o); }
+    .feat-title { font-family:'Fraunces',serif; font-size:clamp(1.6rem,2.8vw,2.1rem); font-weight:700; line-height:1.2; letter-spacing:-.03em; margin-bottom:16px; }
+    .feat-body { font-size:.91rem; color:var(--muted); line-height:1.95; }
+    .feat-media { position:relative; overflow:hidden; }
+    .feat-media img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .55s; }
+    .feat-media:hover img { transform:scale(1.04); }
+    .feat-media::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(255,107,53,.12) 0%,transparent 50%); pointer-events:none; }
+
+    /* ── COMPARISON ── */
+    #compare { padding:110px 0; background:var(--text); }
+    .compare-header { text-align:center; margin-bottom:56px; }
+    .compare-header .sec-title { color:#fff; }
+    .compare-header .sec-lead { color:rgba(255,255,255,.45); }
+    .compare-wrap { overflow-x:auto; }
+    table.compare {
+      width:100%; border-collapse:collapse;
+      background:transparent;
+    }
+    .compare th, .compare td {
+      padding:16px 20px; text-align:center; font-size:.85rem;
+    }
+    .compare thead tr th {
+      font-family:'Fraunces',serif; font-size:1.05rem; font-weight:700; padding-bottom:20px;
+      border-bottom:2px solid rgba(255,255,255,.1);
+    }
+    .compare thead .th-fitbase {
+      background:var(--o); color:#fff; border-radius:var(--rm) var(--rm) 0 0;
+      position:relative;
+    }
+    .compare thead .th-fitbase::before {
+      content:'おすすめ'; position:absolute; top:-12px; left:50%; transform:translateX(-50%);
+      background:#fff; color:var(--o); font-size:.62rem; font-weight:700; letter-spacing:.06em;
+      padding:3px 12px; border-radius:999px; white-space:nowrap;
+    }
+    .compare thead .th-other { color:rgba(255,255,255,.4); }
+    .compare tbody tr { border-bottom:1px solid rgba(255,255,255,.06); }
+    .compare tbody tr:hover { background:rgba(255,255,255,.03); }
+    .compare tbody .row-label { text-align:left; color:rgba(255,255,255,.55); font-weight:500; padding-left:8px; }
+    .compare tbody .col-other { color:rgba(255,255,255,.3); }
+    .compare tbody .col-fitbase { background:rgba(255,107,53,.07); color:#fff; font-weight:700; }
+    .compare .check { color:var(--o); font-size:1.1rem; }
+    .compare .cross { color:rgba(255,255,255,.2); font-size:1rem; }
+
+    /* ── PRICING ── */
+    #pricing { padding:110px 0; background:var(--white); position:relative; overflow:hidden; }
+    #pricing::after { content:''; position:absolute; bottom:-80px; right:-80px; width:400px; height:400px; background:radial-gradient(circle,rgba(255,107,53,.05) 0%,transparent 70%); pointer-events:none; }
+    .pricing-header { text-align:center; margin-bottom:56px; }
+    .pricing-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; position:relative; z-index:1; }
+    .pc {
+      background:var(--bg); border:1px solid rgba(0,0,0,.09); border-radius:var(--rm);
+      padding:36px 28px; transition:transform .25s, box-shadow .25s; position:relative;
+    }
+    .pc:hover { transform:translateY(-4px); box-shadow:0 16px 48px rgba(0,0,0,.09); }
+    .pc.feat { background:var(--text); border-color:transparent; color:#fff; }
+    .pc.feat:hover { box-shadow:0 16px 48px rgba(0,0,0,.28); }
+    .pc-badge { position:absolute; top:-13px; left:50%; transform:translateX(-50%); background:var(--o); color:#fff; font-size:.62rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:4px 18px; border-radius:999px; white-space:nowrap; }
+    .pc-label { font-size:.62rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--o); margin-bottom:6px; }
+    .pc-name { font-family:'Fraunces',serif; font-size:1.45rem; font-weight:700; letter-spacing:-.03em; margin-bottom:2px; }
+    .feat .pc-name { color:#fff; }
+    .pc-sub { font-size:.74rem; color:var(--muted); margin-bottom:20px; line-height:1.5; }
+    .feat .pc-sub { color:rgba(255,255,255,.4); }
+    .pc-divider { height:1px; background:rgba(0,0,0,.08); margin-bottom:20px; }
+    .feat .pc-divider { background:rgba(255,255,255,.1); }
+    /* anchor price */
+    .pc-anchor { font-size:.72rem; color:var(--muted); text-decoration:line-through; margin-bottom:2px; }
+    .feat .pc-anchor { color:rgba(255,255,255,.3); }
+    .pc-price { display:flex; align-items:baseline; gap:3px; margin-bottom:20px; }
+    .pc-price .yen { font-size:.88rem; color:var(--muted); }
+    .feat .pc-price .yen { color:rgba(255,255,255,.4); }
+    .pc-price .amt { font-family:'Fraunces',serif; font-size:2.5rem; font-weight:700; letter-spacing:-.05em; line-height:1; }
+    .pc-price .unit { font-size:.7rem; color:var(--muted); }
+    .feat .pc-price .unit { color:rgba(255,255,255,.4); }
+    /* bonus */
+    .pc-bonus { background:rgba(255,107,53,.07); border-radius:var(--r); padding:10px 14px; margin-bottom:16px; font-size:.75rem; color:var(--o); font-weight:600; line-height:1.6; }
+    .feat .pc-bonus { background:rgba(255,107,53,.15); }
+    .pc-feats { list-style:none; margin-bottom:24px; }
+    .pc-feats li { display:flex; align-items:flex-start; gap:9px; font-size:.82rem; line-height:1.5; padding:8px 0; border-bottom:1px solid rgba(0,0,0,.05); color:var(--muted); }
+    .feat .pc-feats li { border-bottom-color:rgba(255,255,255,.07); color:rgba(255,255,255,.55); }
+    .pc-feats li:last-child { border-bottom:none; }
+    .pc-feats li::before { content:'—'; color:var(--o); font-weight:700; flex-shrink:0; font-size:.65rem; margin-top:3px; }
+    .pc-btn { width:100%; padding:12px; border-radius:var(--r); border:1px solid rgba(0,0,0,.15); background:transparent; color:var(--text); font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:.75rem; letter-spacing:.06em; text-transform:uppercase; cursor:pointer; transition:all .2s; }
+    .pc-btn:hover { background:var(--text); color:#fff; border-color:var(--text); }
+    .feat .pc-btn { background:var(--o); color:#fff; border-color:var(--o); }
+    .feat .pc-btn:hover { background:var(--od); border-color:var(--od); }
+    .pricing-note { text-align:center; margin-top:24px; font-size:.74rem; color:var(--muted); }
+    .guarantee-bar {
+      margin-top:40px; background:var(--bg); border:1px solid rgba(0,0,0,.09);
+      border-left:4px solid var(--o); border-radius:var(--rm); padding:24px 28px;
+      display:flex; align-items:center; gap:20px;
+    }
+    .g-icon { flex-shrink:0; width:44px; height:44px; background:rgba(255,107,53,.08); border-radius:var(--r); display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:1.3rem; font-style:italic; font-weight:700; color:var(--o); }
+    .g-text h4 { font-size:.95rem; font-weight:700; margin-bottom:4px; }
+    .g-text p { font-size:.8rem; color:var(--muted); line-height:1.75; }
+
+    /* ── FAQ ── */
+    #faq { padding:110px 0; background:var(--bg); }
+    .faq-header { text-align:center; margin-bottom:56px; }
+    .faq-list { max-width:700px; margin:0 auto; }
+    .faq-item { border-bottom:1px solid rgba(0,0,0,.08); }
+    .faq-q { display:flex; justify-content:space-between; align-items:center; padding:20px 0; cursor:pointer; font-size:.9rem; font-weight:500; gap:16px; transition:color .2s; }
+    .faq-q:hover { color:var(--o); }
+    .faq-ico { flex-shrink:0; width:22px; height:22px; position:relative; }
+    .faq-ico::before,.faq-ico::after { content:''; position:absolute; background:var(--text); border-radius:1px; transition:transform .3s,opacity .3s,background .2s; }
+    .faq-ico::before { top:10px; left:0; width:22px; height:2px; }
+    .faq-ico::after { top:1px; left:10px; width:2px; height:20px; }
+    .faq-item.open .faq-ico::after { transform:scaleY(0); opacity:0; }
+    .faq-item.open .faq-q { color:var(--o); }
+    .faq-item.open .faq-ico::before,.faq-item.open .faq-ico::after { background:var(--o); }
+    .faq-a { overflow:hidden; max-height:0; transition:max-height .38s ease; }
+    .faq-a p { padding:0 0 20px; font-size:.86rem; color:var(--muted); line-height:1.85; }
+
+    /* ── FORM ── */
+    #contact { padding:110px 0; background:var(--text); position:relative; overflow:hidden; }
+    #contact::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 75% 50% at 50% -5%,rgba(255,107,53,.18) 0%,transparent 60%); pointer-events:none; }
+    #contact::after { content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(-45deg,transparent,transparent 28px,rgba(255,107,53,.04) 28px,rgba(255,107,53,.04) 29px); pointer-events:none; }
+    .form-wrap { position:relative; z-index:1; max-width:560px; margin:0 auto; text-align:center; }
+    .form-wrap .sec-title { color:#fff; }
+    .form-wrap .sec-lead { color:rgba(255,255,255,.4); margin-bottom:8px; }
+    .form-scarcity { display:inline-flex; align-items:center; gap:8px; background:rgba(255,107,53,.12); border:1px solid rgba(255,107,53,.28); border-radius:var(--r); padding:7px 16px; font-size:.72rem; font-weight:700; color:var(--o); margin:18px 0 32px; letter-spacing:.04em; }
+    .form-dot { width:7px; height:7px; background:var(--o); border-radius:50%; animation:blink 1.8s infinite; }
+    .form-card { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.09); border-radius:var(--rm); padding:44px 40px; }
+    /* 2-step form */
+    .form-step { transition:opacity .3s, transform .3s; }
+    .form-step.hidden { display:none; }
+    .step-label { font-size:.7rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.3); margin-bottom:20px; }
+    .step-label strong { color:var(--o); }
+    .form-group { margin-bottom:14px; text-align:left; }
+    .form-group label { display:block; font-size:.7rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.45); margin-bottom:7px; }
+    .form-group label span { color:var(--o); }
+    .form-group input,.form-group select,.form-group textarea {
+      width:100%; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1);
+      border-radius:var(--r); padding:13px 16px; color:#fff;
+      font-family:'Space Grotesk','Noto Sans JP',sans-serif; font-size:.92rem;
+      outline:none; transition:border-color .2s, background .2s;
+    }
+    .form-group input::placeholder,.form-group textarea::placeholder { color:rgba(255,255,255,.18); }
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus { border-color:var(--o); background:rgba(255,107,53,.06); }
+    .form-group select option { background:#222; color:#fff; }
+    .form-group textarea { min-height:80px; resize:vertical; }
+    .form-row2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .form-btn { width:100%; padding:16px; background:var(--o); color:#fff; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:.88rem; letter-spacing:.05em; text-transform:uppercase; border:none; border-radius:var(--r); cursor:pointer; box-shadow:0 3px 0 var(--od); transition:background .2s,transform .15s,box-shadow .15s; margin-top:6px; }
+    .form-btn:hover { background:var(--od); transform:translateY(-1px); box-shadow:0 5px 0 #b8441a; }
+    .form-btn.secondary { background:transparent; border:1px solid rgba(255,255,255,.15); color:rgba(255,255,255,.6); box-shadow:none; margin-top:10px; font-size:.78rem; }
+    .form-btn.secondary:hover { background:rgba(255,255,255,.06); transform:none; }
+    .form-privacy { font-size:.68rem; color:rgba(255,255,255,.22); margin-top:12px; }
+    .form-privacy a { color:rgba(255,107,53,.6); }
+    .form-success { display:none; flex-direction:column; align-items:center; gap:14px; padding:44px 24px; color:#fff; }
+    .success-icon { width:50px; height:50px; border:2px solid var(--o); border-radius:var(--r); display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:1.6rem; font-style:italic; color:var(--o); }
+    .form-success h3 { font-family:'Fraunces',serif; font-size:1.5rem; font-weight:700; }
+    .form-success p { font-size:.86rem; color:rgba(255,255,255,.4); }
+
+    /* ── FOOTER ── */
+    footer { background:#0f0e0d; color:rgba(255,255,255,.3); padding:48px 28px; text-align:center; }
+    .f-logo { font-family:'Fraunces',serif; font-size:1.55rem; font-weight:700; letter-spacing:-.03em; color:#fff; margin-bottom:6px; }
+    .f-logo span { color:var(--o); font-style:italic; }
+    .f-tag { font-size:.74rem; margin-bottom:24px; }
+    .f-links { display:flex; justify-content:center; gap:24px; flex-wrap:wrap; margin-bottom:22px; font-size:.74rem; }
+    .f-links a { color:rgba(255,255,255,.3); text-decoration:none; transition:color .2s; }
+    .f-links a:hover { color:var(--o); }
+    .f-copy { font-size:.68rem; }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:900px) {
+      .hero-left { padding:44px 28px; }
+    }
+    @media(max-width:768px) {
+      body { padding-bottom:64px; }
+      #hero { grid-template-columns:1fr; min-height:auto; }
+      .hero-right { height:55vw; min-height:260px; order:-1; }
+      .hero-overlay { background:linear-gradient(to bottom,transparent 50%,var(--bg) 100%); }
+      .hero-card { left:14px; bottom:14px; }
+      .hero-nums { font-size:.8rem; }
+      .hero-num-val { font-size:1.4rem; }
+      .pain-grid { grid-template-columns:1fr; }
+      .testi-grid { grid-template-columns:1fr; }
+      .trainer-grid { grid-template-columns:1fr; }
+      .trainer-card { grid-template-columns:100px 1fr; gap:18px; }
+      .trainer-photo { width:100px; height:120px; }
+      .feat-row,.feat-row.rev { grid-template-columns:1fr; min-height:auto; }
+      .feat-row.rev .feat-content { order:unset; }
+      .feat-row.rev .feat-media { order:unset; }
+      .feat-media { aspect-ratio:16/9; }
+      .pricing-grid { grid-template-columns:1fr; }
+      .inline-cta { flex-direction:column; padding:24px 20px; }
+      .form-card { padding:28px 20px; }
+      .form-row2 { grid-template-columns:1fr; }
+      .sticky-cta-text { display:none; }
+      .nav-scarcity { display:none; }
+      .compare th,.compare td { padding:12px 10px; font-size:.76rem; }
+    }
+    @media(max-width:480px) {
+      .btn-primary { width:100%; justify-content:center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- STICKY BOTTOM CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-cta-text">
+    <strong>今月の無料体験枠 — 残り3名</strong>
+    費用・勧誘なし。3ヶ月で変わる。
+  </div>
+  <a href="#contact" class="sticky-cta-btn">無料体験を予約する →</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Fit<span>Base</span></a>
+  <div class="nav-right">
+    <div class="nav-scarcity">
+      <div class="nav-dot"></div>
+      <span>今月残り<strong style="color:var(--o)">3枠</strong></span>
+    </div>
+    <a href="#contact" class="nav-cta">無料体験を予約する</a>
+  </div>
+</nav>
+
+<!-- COUNTDOWN BAR -->
+<div class="countdown-bar">
+  <div class="label">キャンペーン終了まで — <strong>入会金22,000円が無料</strong></div>
+  <div class="cd-units">
+    <div class="cd-unit"><div class="cd-num" id="cd-days">28</div><div class="cd-label">Days</div></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-unit"><div class="cd-num" id="cd-hours">00</div><div class="cd-label">Hours</div></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-unit"><div class="cd-num" id="cd-mins">00</div><div class="cd-label">Mins</div></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-unit"><div class="cd-num" id="cd-secs">00</div><div class="cd-label">Secs</div></div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left reveal">
+    <div class="hero-target">20〜30代・初心者・女性の方へ</div>
+    <h1>はじめての私が、<em>変わる場所。</em></h1>
+    <p class="hero-voice">「<strong>また明日から始めよう</strong>」——<br>何度その言葉を繰り返しましたか。</p>
+    <p class="hero-promise">
+      マンツーマン指導で、あなただけのプログラム。<br>
+      累計1,200名が証明した<strong>3ヶ月で変わる</strong>仕組みがあります。
+    </p>
+    <div class="hero-nums">
+      <div class="hero-num">
+        <div class="hero-num-val">94%</div>
+        <div class="hero-num-label">3ヶ月で<br>結果実感</div>
+      </div>
+      <div class="hero-num">
+        <div class="hero-num-val">1,200+</div>
+        <div class="hero-num-label">累計<br>指導人数</div>
+      </div>
+      <div class="hero-num">
+        <div class="hero-num-val">-8.4kg</div>
+        <div class="hero-num-label">3ヶ月平均<br>減量実績</div>
+      </div>
+    </div>
+    <a href="#contact" class="btn-primary">
+      <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      無料体験を予約する（今月残り3枠）
+    </a>
+    <p class="hero-micro">費用・勧誘なし ／ <strong>6月末まで入会金無料</strong></p>
+  </div>
+  <div class="hero-right">
+    <img id="heroImg" class="hero-img" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&q=80" alt="パーソナルトレーニング">
+    <div class="hero-overlay"></div>
+    <div class="hero-card" id="heroCard">
+      <blockquote>「3ヶ月で7kg痩せました。人生で初めて、自分の体が好きになれた気がします。」</blockquote>
+      <div class="hero-card-attr">
+        <strong>-7.2kg / 3ヶ月</strong>
+        K.Mさん · 28歳 · 会社員
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section id="pain">
+  <div class="container">
+    <div class="pain-center reveal">
+      <p class="pain-eyebrow">あなたのことを知っています</p>
+      <p class="pain-quote">「頑張ってるのに、<em>なぜか変わらない。</em>」</p>
+      <p class="pain-body">
+        一人でジムに行っても何をすればいいか分からない。<br>
+        ネットで調べても情報が多すぎて混乱する。<br>
+        <strong>3日坊主を繰り返すたびに、少し自信を失っていく。</strong><br><br>
+        それはあなたの意志が弱いのではありません。<br>
+        正しい方法と、支えてくれる人がいなかっただけです。
+      </p>
+      <div class="pain-grid">
+        <div class="pain-item"><div class="pain-item-n">01</div><h3>何から始めればいいか分からない</h3><p>器具の使い方も、どの運動が効くのかも分からないまま、なんとなく通って退会。</p><div class="pain-line"></div></div>
+        <div class="pain-item"><div class="pain-item-n">02</div><h3>やるたびにリバウンドしてきた</h3><p>頑張って痩せても必ず戻る。「また失敗した」という感覚が積み重なっている。</p><div class="pain-line"></div></div>
+        <div class="pain-item"><div class="pain-item-n">03</div><h3>忙しくて継続できない</h3><p>仕事・育児・家事。自分のための時間を作ること自体が後回しになってしまう。</p><div class="pain-line"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA 1 -->
+<div class="container" style="padding:56px 28px;">
+  <div class="inline-cta reveal">
+    <div class="inline-cta-text">
+      <h3>その悩み、3ヶ月で解決できます。</h3>
+      <p>まずは無料体験から。費用なし・勧誘なし。<strong>今月残り3枠。</strong></p>
+    </div>
+    <a href="#contact" class="btn-primary">
+      <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      無料体験を予約する
+    </a>
+  </div>
+</div>
+
+<!-- RESULTS / TESTIMONIALS -->
+<section id="results">
+  <div class="container">
+    <div class="results-header reveal">
+      <p class="sec-kicker">お客様の変化 — 実績</p>
+      <h2 class="sec-title">数字が、<span>証明します。</span></h2>
+      <p class="sec-lead">すべて実際のお客様の3ヶ月後の変化です。個人差はありますが、データは嘘をつきません。</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal" style="transition-delay:.05s">
+        <img class="testi-img" src="https://images.unsplash.com/photo-1594381898411-846e7d193883?w=600&q=80" alt="K.Mさん">
+        <div class="testi-body">
+          <div class="testi-nums">
+            <div><div class="t-stat-n">-7.2<small style="font-size:.95rem">kg</small></div><div class="t-stat-l">体重</div></div>
+            <div><div class="t-stat-n">-9<small style="font-size:.95rem">cm</small></div><div class="t-stat-l">ウエスト</div></div>
+            <div><div class="t-stat-n">3<small style="font-size:.95rem">ヶ月</small></div><div class="t-stat-l">期間</div></div>
+          </div>
+          <p class="testi-q">「鏡の前に立つのが怖かった私が、今は毎朝鏡を見るのが楽しみになりました。」</p>
+          <div class="testi-prof">
+            <img class="testi-av" src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=80&q=80" alt="">
+            <div><div class="testi-name">K.Mさん</div><div class="testi-meta">28歳 · 会社員 · Standardプラン</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal" style="transition-delay:.1s">
+        <img class="testi-img" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80" alt="T.Aさん">
+        <div class="testi-body">
+          <div class="testi-nums">
+            <div><div class="t-stat-n">-5.8<small style="font-size:.95rem">kg</small></div><div class="t-stat-l">体重</div></div>
+            <div><div class="t-stat-n">-7<small style="font-size:.95rem">%</small></div><div class="t-stat-l">体脂肪率</div></div>
+            <div><div class="t-stat-n">3<small style="font-size:.95rem">ヶ月</small></div><div class="t-stat-l">期間</div></div>
+          </div>
+          <p class="testi-q">「産後2年ずっと悩んでいた体型が、3ヶ月でほぼ戻りました。もっと早く来ればよかった。」</p>
+          <div class="testi-prof">
+            <img class="testi-av" src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=80&q=80" alt="">
+            <div><div class="testi-name">T.Aさん</div><div class="testi-meta">34歳 · 主婦 · Standardプラン</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal" style="transition-delay:.15s">
+        <img class="testi-img" src="https://images.unsplash.com/photo-1549576490-b0b4831ef60a?w=600&q=80" alt="N.Sさん">
+        <div class="testi-body">
+          <div class="testi-nums">
+            <div><div class="t-stat-n">-9.1<small style="font-size:.95rem">kg</small></div><div class="t-stat-l">体重</div></div>
+            <div><div class="t-stat-n">-11<small style="font-size:.95rem">cm</small></div><div class="t-stat-l">ウエスト</div></div>
+            <div><div class="t-stat-n">3<small style="font-size:.95rem">ヶ月</small></div><div class="t-stat-l">期間</div></div>
+          </div>
+          <p class="testi-q">「夜勤ありの不規則な仕事でも、トレーナーが柔軟に対応してくれて助かりました。」</p>
+          <div class="testi-prof">
+            <img class="testi-av" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&q=80" alt="">
+            <div><div class="testi-name">N.Sさん</div><div class="testi-meta">25歳 · 看護師 · Premiumプラン</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAINER PROFILES -->
+<section id="trainer">
+  <div class="container">
+    <div class="trainer-header reveal">
+      <p class="sec-kicker">担当トレーナー</p>
+      <h2 class="sec-title">「誰が教えるか」が、<span>すべてです。</span></h2>
+      <p class="sec-lead">FitBaseのトレーナーは全員、国際認定資格保有者。資格と経験、どちらも持つプロが専任担当します。</p>
+    </div>
+    <div class="trainer-grid">
+      <div class="trainer-card reveal" style="transition-delay:.05s">
+        <img class="trainer-photo" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=300&q=80" alt="田中 麻衣 トレーナー">
+        <div>
+          <div class="trainer-name">田中 麻衣</div>
+          <div class="trainer-role">Senior Personal Trainer</div>
+          <div class="trainer-certs">
+            <span class="cert-tag">NSCA-CPT</span>
+            <span class="cert-tag">日本ダイエット健康協会</span>
+            <span class="cert-tag">栄養指導士</span>
+          </div>
+          <div class="trainer-stats">
+            <div class="tr-stat"><div class="tr-stat-n">500<span>+</span></div><div class="tr-stat-l">指導人数</div></div>
+            <div class="tr-stat"><div class="tr-stat-n">6<span>年</span></div><div class="tr-stat-l">指導歴</div></div>
+            <div class="tr-stat"><div class="tr-stat-n">96<span>%</span></div><div class="tr-stat-l">担当満足度</div></div>
+          </div>
+          <p class="trainer-bio">元社会人バレーボール選手。「続けられる体作り」を最優先に、食事・運動・睡眠を一体で指導。「痩せるより、強くなれ」をモットーに、初心者・産後ケアを得意とする。</p>
+        </div>
+      </div>
+      <div class="trainer-card reveal" style="transition-delay:.1s">
+        <img class="trainer-photo" src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=300&q=80" alt="山本 健太 トレーナー">
+        <div>
+          <div class="trainer-name">山本 健太</div>
+          <div class="trainer-role">Head Trainer</div>
+          <div class="trainer-certs">
+            <span class="cert-tag">NSCA-CSCS</span>
+            <span class="cert-tag">JATI-ATI</span>
+            <span class="cert-tag">スポーツ栄養士</span>
+          </div>
+          <div class="trainer-stats">
+            <div class="tr-stat"><div class="tr-stat-n">700<span>+</span></div><div class="tr-stat-l">指導人数</div></div>
+            <div class="tr-stat"><div class="tr-stat-n">8<span>年</span></div><div class="tr-stat-l">指導歴</div></div>
+            <div class="tr-stat"><div class="tr-stat-n">98<span>%</span></div><div class="tr-stat-l">担当満足度</div></div>
+          </div>
+          <p class="trainer-bio">ボディビル大会入賞3回。競技歴とスポーツ科学の知識を活かし、科学的根拠に基づいたプログラム設計を行う。男性・アスリート志向の方から圧倒的な支持を得る。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="container" style="padding-bottom:0;">
+    <div class="feat-header reveal" style="padding-bottom:64px;">
+      <p class="sec-kicker">FitBaseが選ばれる理由</p>
+      <h2 class="sec-title">「続けられる」には<span>理由がある。</span></h2>
+    </div>
+  </div>
+  <div class="feat-list">
+    <div class="feat-row reveal">
+      <div class="feat-content">
+        <div class="feat-idx">Feature 01</div>
+        <h3 class="feat-title">担当トレーナーは<br>ずっと変わらない</h3>
+        <p class="feat-body">大手ジムのように毎回担当者が変わることはありません。初日からの変化を一番近くで見ている専任トレーナーが、あなたの「なぜ変われないか」を特定し、最短ルートで結果に連れていきます。</p>
+      </div>
+      <div class="feat-media"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=700&q=80" alt="専任トレーナー"></div>
+    </div>
+    <div class="feat-row rev reveal">
+      <div class="feat-content">
+        <div class="feat-idx">Feature 02</div>
+        <h3 class="feat-title">初心者・女性が<br>安心して通える場所</h3>
+        <p class="feat-body">来訪者の7割は運動未経験・初心者。女性専用時間帯も設け、「ガチ勢だらけで怖い」という声がゼロの空間をつくりました。「想像と全然違った」が、体験後の一番多い感想です。</p>
+      </div>
+      <div class="feat-media"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=700&q=80" alt="清潔な空間"></div>
+    </div>
+    <div class="feat-row reveal">
+      <div class="feat-content">
+        <div class="feat-idx">Feature 03</div>
+        <h3 class="feat-title">食べながら、<br>体が変わっていく</h3>
+        <p class="feat-body">「食べないダイエット」はリバウンドへの近道。FitBaseでは「好きなものを食べながら痩せる」食事設計を週次でレビュー。卒業後もリバウンドしない体の使い方を3ヶ月で身につけます。</p>
+      </div>
+      <div class="feat-media"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=700&q=80" alt="食事管理"></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section id="compare">
+  <div class="container">
+    <div class="compare-header reveal">
+      <p class="sec-kicker" style="color:rgba(255,255,255,.4);">他との違い</p>
+      <h2 class="sec-title">なぜ<span>FitBase</span>なのか</h2>
+      <p class="sec-lead">自己流・大手ジムと比較して、何が違うのかを正直にお伝えします。</p>
+    </div>
+    <div class="compare-wrap reveal">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th style="text-align:left;color:rgba(255,255,255,.3);width:30%"></th>
+            <th class="th-other">自己流<br>ダイエット</th>
+            <th class="th-other">大手<br>フィットネスジム</th>
+            <th class="th-fitbase">FitBase</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">担当トレーナー</td>
+            <td class="col-other">なし</td>
+            <td class="col-other">毎回変わる</td>
+            <td class="col-fitbase"><span class="check">✓</span> 専任固定</td>
+          </tr>
+          <tr>
+            <td class="row-label">食事指導</td>
+            <td class="col-other">自分で調べる</td>
+            <td class="col-other">有料オプション</td>
+            <td class="col-fitbase"><span class="check">✓</span> 全プラン込み</td>
+          </tr>
+          <tr>
+            <td class="row-label">LINEサポート</td>
+            <td class="col-other"><span class="cross">—</span></td>
+            <td class="col-other"><span class="cross">—</span></td>
+            <td class="col-fitbase"><span class="check">✓</span> 毎日対応</td>
+          </tr>
+          <tr>
+            <td class="row-label">3ヶ月での結果</td>
+            <td class="col-other">個人差あり</td>
+            <td class="col-other">データなし</td>
+            <td class="col-fitbase"><span class="check">✓</span> 94%が実感</td>
+          </tr>
+          <tr>
+            <td class="row-label">リバウンド対策</td>
+            <td class="col-other"><span class="cross">—</span></td>
+            <td class="col-other"><span class="cross">—</span></td>
+            <td class="col-fitbase"><span class="check">✓</span> 習慣化サポート</td>
+          </tr>
+          <tr>
+            <td class="row-label">結果保証</td>
+            <td class="col-other"><span class="cross">—</span></td>
+            <td class="col-other"><span class="cross">—</span></td>
+            <td class="col-fitbase"><span class="check">✓</span> 3ヶ月変化保証</td>
+          </tr>
+          <tr>
+            <td class="row-label">月額費用</td>
+            <td class="col-other">数千円</td>
+            <td class="col-other">1〜3万円</td>
+            <td class="col-fitbase">4.9〜10.9万円</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- CTA 2 inside compare -->
+    <div style="text-align:center;margin-top:48px;" class="reveal">
+      <p style="color:rgba(255,255,255,.45);font-size:.88rem;margin-bottom:20px;">「まず体験してから決める」で大丈夫です。</p>
+      <a href="#contact" class="btn-primary">無料体験を予約する（費用なし）</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div class="pricing-header reveal">
+      <p class="sec-kicker">料金プラン</p>
+      <h2 class="sec-title">シンプルな<span>3プラン</span></h2>
+      <p class="sec-lead">すべてのプランに無料カウンセリング・食事指導・LINEサポートが含まれます</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pc reveal" style="transition-delay:.05s">
+        <p class="pc-label">Starter</p>
+        <p class="pc-name">週1回プラン</p>
+        <p class="pc-sub">まず体験したい方向け</p>
+        <div class="pc-divider"></div>
+        <p class="pc-anchor">通常 ¥60,000/月</p>
+        <div class="pc-price"><span class="yen">¥</span><span class="amt">49,800</span><span class="unit">/月（税込）</span></div>
+        <div class="pc-bonus">体験時プレゼント：栄養ガイドブック（¥3,980相当）</div>
+        <ul class="pc-feats">
+          <li>マンツーマン指導 月4回</li>
+          <li>初回カウンセリング</li>
+          <li>食事アドバイス</li>
+          <li>LINEサポート（平日）</li>
+        </ul>
+        <button class="pc-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">このプランで体験する</button>
+      </div>
+      <div class="pc feat reveal" style="transition-delay:.1s">
+        <div class="pc-badge">一番人気</div>
+        <p class="pc-label">Standard</p>
+        <p class="pc-name">週2回プラン</p>
+        <p class="pc-sub">3ヶ月で結果を出したい方</p>
+        <div class="pc-divider"></div>
+        <p class="pc-anchor">通常 ¥100,000/月</p>
+        <div class="pc-price"><span class="yen">¥</span><span class="amt">79,800</span><span class="unit">/月（税込）</span></div>
+        <div class="pc-bonus">体験時：InBodyボディチェック（¥5,000相当）＋栄養サプリ初回プレゼント</div>
+        <ul class="pc-feats">
+          <li>マンツーマン指導 月8回</li>
+          <li>詳細ボディチェック</li>
+          <li>カスタム食事プラン</li>
+          <li>LINEサポート（毎日）</li>
+          <li>栄養サプリ初回プレゼント</li>
+        </ul>
+        <button class="pc-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">このプランで体験する</button>
+      </div>
+      <div class="pc reveal" style="transition-delay:.15s">
+        <p class="pc-label">Premium</p>
+        <p class="pc-name">週3回プラン</p>
+        <p class="pc-sub">本気で変わりたい方</p>
+        <div class="pc-divider"></div>
+        <p class="pc-anchor">通常 ¥140,000/月</p>
+        <div class="pc-price"><span class="yen">¥</span><span class="amt">109,800</span><span class="unit">/月（税込）</span></div>
+        <div class="pc-bonus">体験時：InBodyボディチェック＋サプリ＋食事プラン初回作成（¥12,000相当）</div>
+        <ul class="pc-feats">
+          <li>マンツーマン指導 月12回</li>
+          <li>毎月ボディチェック</li>
+          <li>食事プラン＋週次レビュー</li>
+          <li>LINEサポート（優先対応）</li>
+          <li>栄養サプリ毎月プレゼント</li>
+          <li>アフターフォロー3ヶ月</li>
+        </ul>
+        <button class="pc-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">このプランで体験する</button>
+      </div>
+    </div>
+    <p class="pricing-note">※ 別途入会金22,000円（税込）。6月末までのお申込みで入会金無料。</p>
+    <div class="guarantee-bar reveal">
+      <div class="g-icon">G</div>
+      <div class="g-text">
+        <h4>3ヶ月変化保証</h4>
+        <p>プログラムを継続されたにもかかわらず目標値に届かない場合、延長1ヶ月を無料でご提供します。結果にコミットするから言える保証です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-header reveal">
+      <p class="sec-kicker">よくある質問</p>
+      <h2 class="sec-title">不安を、<span>なくします。</span></h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <div class="faq-q"><span>運動が全くの初心者でも大丈夫ですか？</span><div class="faq-ico"></div></div>
+        <div class="faq-a"><p>むしろ初心者の方が結果が出やすいです。お客様の約7割が運動未経験からスタートしています。担当トレーナーがゼロから全部教えますので、「何も分からない」という状態でお越しください。</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>食事制限は厳しいですか？</span><div class="faq-ico"></div></div>
+        <div class="faq-a"><p>厳しい食事制限は行いません。「食べながら痩せる」がFitBaseのテーマ。外食が多い方・料理が苦手な方でも実践できる現実的な食事管理を提案します。</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>仕事が不規則でも通えますか？</span><div class="faq-ico"></div></div>
+        <div class="faq-a"><p>早朝7時から夜22時まで営業。シフト制・夜勤ありの看護師や飲食業の方にも多くご利用いただいています。スケジュールの相談も無料体験時に遠慮なくどうぞ。</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>3ヶ月で結果が出なかった場合は？</span><div class="faq-ico"></div></div>
+        <div class="faq-a"><p>プログラムを継続されたにもかかわらず目標に届かない場合は、延長1ヶ月分を無料でご提供します（条件あり）。目標設定と進捗確認を定期的に行い、常に最短ルートに調整します。</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>無料体験では何をするのですか？</span><div class="faq-ico"></div></div>
+        <div class="faq-a"><p>①カウンセリング（現状・目標のヒアリング）②ボディチェック（体組成測定）③実際のトレーニング体験（約40分）の3ステップです。費用なし・勧誘なし。体験後に申込みを迷っているだけでも大丈夫です。</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>男性でも通えますか？</span><div class="faq-ico"></div></div>
+        <div class="faq-a"><p>はい。増量・筋肥大・体脂肪減少など、男性のご要望にも対応したプログラムをご用意しています。</p></div>
+      </div>
+    </div>
+    <!-- CTA 3 -->
+    <div class="container" style="padding:56px 0 0;">
+      <div class="inline-cta reveal">
+        <div class="inline-cta-text">
+          <h3>まだ迷っていますか？</h3>
+          <p>無料体験は費用ゼロ・勧誘なし。<strong>来てから決めればいい。</strong></p>
+        </div>
+        <a href="#contact" class="btn-primary">
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          無料体験を予約する
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section id="contact">
+  <div class="container">
+    <div class="form-wrap reveal">
+      <h2 class="sec-title">無料体験を<span>予約する</span></h2>
+      <p class="sec-lead">3ヶ月後の自分が、今日の決断に感謝します。</p>
+      <div class="form-scarcity"><div class="form-dot"></div>今月の無料体験枠 — 残り3名</div>
+      <div class="form-card">
+        <!-- STEP 1 -->
+        <div class="form-step" id="step1">
+          <p class="step-label">STEP <strong>1 / 2</strong> — まずはお名前とご連絡先だけ</p>
+          <div class="form-row2">
+            <div class="form-group">
+              <label>お名前<span>*</span></label>
+              <input type="text" id="s1-name" placeholder="山田 花子" required>
+            </div>
+            <div class="form-group">
+              <label>電話番号<span>*</span></label>
+              <input type="tel" id="s1-phone" placeholder="090-0000-0000" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>メールアドレス<span>*</span></label>
+            <input type="email" id="s1-email" placeholder="example@email.com" required>
+          </div>
+          <button class="form-btn" id="nextBtn">次へ（所要30秒）→</button>
+        </div>
+        <!-- STEP 2 -->
+        <div class="form-step hidden" id="step2">
+          <p class="step-label">STEP <strong>2 / 2</strong> — あと少しで完了</p>
+          <div class="form-group">
+            <label>ご希望の体験日時</label>
+            <select id="s2-datetime">
+              <option value="">選択してください</option>
+              <option>平日 朝（7:00〜12:00）</option>
+              <option>平日 昼（12:00〜18:00）</option>
+              <option>平日 夜（18:00〜22:00）</option>
+              <option>土日祝 午前</option>
+              <option>土日祝 午後</option>
+              <option>相談して決めたい</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>今の悩みや目標（任意）</label>
+            <textarea id="s2-msg" placeholder="例）産後から体型が戻らない。結婚式まで3ヶ月で-5kgしたい。など"></textarea>
+          </div>
+          <button class="form-btn" id="submitBtn">無料体験を予約する →</button>
+          <button class="form-btn secondary" id="backBtn">← 戻る</button>
+          <p class="form-privacy">送信することで<a href="#">プライバシーポリシー</a>に同意したものとみなします</p>
+        </div>
+        <!-- SUCCESS -->
+        <div class="form-success" id="formSuccess">
+          <div class="success-icon">✓</div>
+          <h3>ありがとうございます</h3>
+          <p>お申し込みを受け付けました。<br>2営業日以内にご連絡いたします。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo">Fit<span>Base</span></div>
+  <div class="f-tag">はじめての私が、変わる場所。</div>
+  <div class="f-links">
+    <a href="#">プライバシーポリシー</a>
+    <a href="#">特定商取引法に基づく表記</a>
+    <a href="#">Instagram</a>
+    <a href="#">LINE公式</a>
+  </div>
+  <div class="f-copy">© 2026 FitBase. All rights reserved.</div>
+</footer>
+
+<script>
+// Countdown to June 30, 2026
+function tick() {
+  const now = new Date();
+  const end = new Date('2026-06-30T23:59:59');
+  const d = Math.max(0, end - now);
+  const days  = Math.floor(d / 86400000);
+  const hours = Math.floor((d % 86400000) / 3600000);
+  const mins  = Math.floor((d % 3600000) / 60000);
+  const secs  = Math.floor((d % 60000) / 1000);
+  document.getElementById('cd-days').textContent  = String(days).padStart(2,'0');
+  document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+  document.getElementById('cd-mins').textContent  = String(mins).padStart(2,'0');
+  document.getElementById('cd-secs').textContent  = String(secs).padStart(2,'0');
+}
+tick(); setInterval(tick, 1000);
+
+// Sticky CTA
+const sticky = document.getElementById('stickyCta');
+window.addEventListener('scroll', () => {
+  sticky.classList.toggle('visible', window.scrollY > 600);
+});
+
+// Reveal
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Hero entrance
+window.addEventListener('load', () => {
+  setTimeout(() => { document.getElementById('heroImg').classList.add('vis'); }, 100);
+  setTimeout(() => { document.getElementById('heroCard').classList.add('vis'); }, 900);
+  Array.from(document.querySelector('.hero-left').children).forEach((el, i) => {
+    el.style.cssText = `opacity:0;transform:translateY(18px);transition:opacity .5s ease ${i*.1}s,transform .5s ease ${i*.1}s`;
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      el.style.opacity = '1'; el.style.transform = 'none';
+    }));
+  });
+});
+
+// FAQ
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement, ans = item.querySelector('.faq-a');
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => {
+      i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight = '0';
+    });
+    if (!open) { item.classList.add('open'); ans.style.maxHeight = ans.scrollHeight + 'px'; }
+  });
+});
+
+// 2-step form
+document.getElementById('nextBtn').addEventListener('click', () => {
+  const name  = document.getElementById('s1-name').value.trim();
+  const phone = document.getElementById('s1-phone').value.trim();
+  const email = document.getElementById('s1-email').value.trim();
+  if (!name || !email) { alert('お名前とメールアドレスをご入力ください。'); return; }
+  document.getElementById('step1').classList.add('hidden');
+  document.getElementById('step2').classList.remove('hidden');
+});
+document.getElementById('backBtn').addEventListener('click', () => {
+  document.getElementById('step2').classList.add('hidden');
+  document.getElementById('step1').classList.remove('hidden');
+});
+document.getElementById('submitBtn').addEventListener('click', () => {
+  const btn = document.getElementById('submitBtn');
+  btn.textContent = '送信中...'; btn.disabled = true;
+  setTimeout(() => {
+    document.getElementById('step2').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'flex';
+  }, 1000);
+});
+</script>
+</body>
+</html>
